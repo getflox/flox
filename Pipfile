@@ -1,0 +1,20 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+click = "*"
+click-plugins = "*"
+click-shell = "*"
+anyconfig = "*"
+schema = "*"
+gitpython = "*"
+pyyaml = "*"
+python-box = "*"
+pygments = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.6"
