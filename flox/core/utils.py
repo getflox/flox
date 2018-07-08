@@ -1,4 +1,4 @@
-from os.path import abspath
+import os
 
 import click
 import git
@@ -17,7 +17,7 @@ def colourize(name):
 
 def locate_project_root():
     try:
-        git_repo = git.Repo(abspath(__file__), search_parent_directories=True)
+        git_repo = git.Repo(os.getcwd(), search_parent_directories=True)
         return git_repo.git.rev_parse("--show-toplevel")
     except Exception:
         return None

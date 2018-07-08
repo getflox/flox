@@ -4,8 +4,6 @@ from os.path import dirname, abspath
 
 from setuptools import setup, find_packages
 
-install_requires = []
-tests_require = []
 
 with open('Pipfile.lock') as fd:
     lock_data = json.load(fd)
