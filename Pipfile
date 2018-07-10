@@ -13,6 +13,7 @@ gitpython = "*"
 pyyaml = "*"
 python-box = "*"
 pygments = "*"
+humanfriendly = "*"
 
 [dev-packages]
 

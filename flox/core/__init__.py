@@ -2,8 +2,10 @@ import os
 from os.path import join, realpath, isfile
 
 from git import Repo, InvalidGitRepositoryError
+from pkg_resources import iter_entry_points
 
 from flox.core import config
+from flox.core.container import ServiceContainer
 from flox.core.utils import colourize, locate_project_root
 
 
@@ -16,6 +18,8 @@ class Flox:
         self.settings = config.get(self.working_dir)
         self.name = self._name()
         self.profile = self._profile()
+        self.container = ServiceContainer(self)
+        self._load_services()
 
     @property
     def environment_file(self):
@@ -55,6 +59,10 @@ class Flox:
 
         with open(self.environment_file) as f:
             return f.readline().strip()
+
+    def _load_services(self):
+        for loader in iter_entry_points('flox.cli_plugins.services'):
+            loader.load()(self.container, self.settings.get(loader.name))
 
 
 class Prompt:

@@ -1,9 +1,8 @@
-import click
 from click_plugins import with_plugins
 from click_shell import shell
 from pkg_resources import iter_entry_points
 
-from flox.command import select, check, profiles, active
+from flox.command import *
 from flox.core import Flox
 
 instance = Flox()
@@ -20,7 +19,7 @@ def cli():
     """Main command"""
 
 
-cli.add_command(select)
+cli.add_command(set_profile)
 cli.add_command(check)
 cli.add_command(profiles)
 cli.add_command(active)
