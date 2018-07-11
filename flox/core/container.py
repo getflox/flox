@@ -1,6 +1,10 @@
+from blinker import signal
+
+
 class ServiceContainer:
     def __init__(self, flox):
         self.services = {}
+        self.events = {}
         self.flox = flox
 
     def registry(self, service, tags: list, priority=0):
@@ -22,4 +26,11 @@ class ServiceContainer:
     def get(self, tag):
         return next(iter(self.find(tag))) or None
 
+    def connect(self, event, callback):
+        if event not in self.events:
+            self.events[event] = signal(event)
 
+        self.events[event].connect(callback, 'container', weak=False)
+
+    def dispatch(self, event, **kwargs):
+        return self.events[event].send('container', **kwargs)
