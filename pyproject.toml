@@ -1,0 +1,54 @@
+[tool.poetry]
+name = "flox"
+version = "0.1.0"
+homepage = "https://github.com/getflox/flox"
+description = "Highly opinionated workflow and orchestration toolkit for modern microservice development"
+authors = ["Michal Przytulski <michal@przytulski.pl>", "Daniel Ancuta <whisller@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.6"
+click = "^7.0"
+click-plugins = "^1.1.1"
+click-shell = "^2.0"
+gitpython = "^3.1.0"
+pygments = "^2.5"
+humanfriendly = "^8.0"
+pyyaml = "^5.3"
+schema = "^0.7"
+deepmerge = "^0.1.0"
+colorama = "^0.4"
+dictdiffer = "^0.8"
+keyring = "^21.0"
+plumbum = "^1.6"
+requests = "^2.23.0"
+terminaltables = "^3.1.0"
+anyconfig = "^0.9"
+flox-core = {path = "../flox-core"}
+flox-sentry = {path = "../flox-sentry"}
+flox-aws = {path = "../flox-aws"}
+flox-exec = {path = "../flox-exec"}
+flox-git = {path = "../flox-git"}
+flox-github = {path = "../flox-github"}
+flox-workflow = {path = "../flox-workflow"}
+flox-docker = {path = "../flox-docker"}
+flox-jira = {path = "../flox-jira"}
+flox-rules = {path = "../flox-rules"}
+flox-bamboo = {path = "../flox-bamboo"}
+
+[tool.poetry.dev-dependencies]
+black = "^19.10b0"
+isort = "^4.3.21"
+
+[tool.poetry.scripts]
+flox = 'flox.cli:cli'
+
+[tool.poetry.plugins."flox.plugin"]
+global = "flox:plugin"
+
+[tool.black]
+line-length = 120
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
