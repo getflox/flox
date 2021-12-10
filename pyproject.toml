@@ -7,19 +7,19 @@ authors = ["Michal Przytulski <michal@przytulski.pl>", "Daniel Ancuta <whisller@
 license = "MIT"
 
 [tool.poetry.dependencies]
-python = "^3.6"
-click = "^7.0"
+python = "^3.6.2"
+click = "^7.1"
 click-plugins = "^1.1.1"
 click-shell = "^2.0"
 gitpython = "^3.1.0"
 pygments = "^2.5"
-humanfriendly = "^8.0"
-pyyaml = "^5.3"
+humanfriendly = "^10.0"
+pyyaml = "^6.0"
 schema = "^0.7"
-deepmerge = "^0.1.0"
+deepmerge = "^0.3.0"
 colorama = "^0.4"
-dictdiffer = "^0.8"
-keyring = "^21.0"
+dictdiffer = "^0.9"
+keyring = "^23.4"
 plumbum = "^1.6"
 requests = "^2.23.0"
 terminaltables = "^3.1.0"
@@ -37,9 +37,10 @@ flox-core = { git = "ssh://git@github.com/getflox/flox-core" }
 #flox-rules = {path = "../flox-rules"}
 #flox-bamboo = {path = "../flox-bamboo"}
 
+slugify = "^0.0.1"
 [tool.poetry.dev-dependencies]
-black = "^19.10b0"
-isort = "^4.3.21"
+black = "^21.12b0"
+isort = "^5.10"
 
 [tool.poetry.scripts]
 flox = 'flox.cli:cli'
