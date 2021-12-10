@@ -23,7 +23,7 @@ Configuration command uses plugin autodiscvery, to list all available options ru
 ## Installation 
 
 ```bash
-$ pip install pip install git+https://github.com/getflox/flox.git
+$ pip install git+https://github.com/getflox/flox.git
 $ flox --help
 Usage: flox [OPTIONS] COMMAND [ARGS]...
 
