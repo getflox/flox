@@ -18,3 +18,32 @@ has it's own dedicated section.
 
 Additionally flox supports interactive environment configuration with `flox configure` command.
 Configuration command uses plugin autodiscvery, to list all available options run `flox configure --help`.
+
+
+## Installation 
+
+```bash
+$ pip install pip install git+https://github.com/getflox/flox.git
+$ flox --help
+Usage: flox [OPTIONS] COMMAND [ARGS]...
+
+  Consistent project management and automation with flox
+
+Options:
+  -v      Verbose mode - show debug info
+  --help  Show this message and exit.
+
+Commands:
+  config   Run configuration wizard for flox.
+  plugin   Manage plugins
+  project  Initialise new project with flox
+```
+
+### Plugin management
+
+Search and install flox plugin
+
+```bash
+flox plugin search aws
+flox plugin install flox-aws
+```
