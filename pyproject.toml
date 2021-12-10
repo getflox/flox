@@ -23,18 +23,19 @@ keyring = "^21.0"
 plumbum = "^1.6"
 requests = "^2.23.0"
 terminaltables = "^3.1.0"
-anyconfig = "^0.9"
-flox-core = {path = "../flox-core"}
-flox-sentry = {path = "../flox-sentry"}
-flox-aws = {path = "../flox-aws"}
-flox-exec = {path = "../flox-exec"}
-flox-git = {path = "../flox-git"}
-flox-github = {path = "../flox-github"}
-flox-workflow = {path = "../flox-workflow"}
-flox-docker = {path = "../flox-docker"}
-flox-jira = {path = "../flox-jira"}
-flox-rules = {path = "../flox-rules"}
-flox-bamboo = {path = "../flox-bamboo"}
+anyconfig = "^0.10"
+flox-core = { git = "ssh://git@github.com/getflox/flox-core" }
+#flox-core = {path = "../flox-core"}
+#flox-sentry = {path = "../flox-sentry"}
+#flox-aws = {path = "../flox-aws"}
+#flox-exec = {path = "../flox-exec"}
+#flox-git = {path = "../flox-git"}
+#flox-github = {path = "../flox-github"}
+#flox-workflow = {path = "../flox-workflow"}
+#flox-docker = {path = "../flox-docker"}
+#flox-jira = {path = "../flox-jira"}
+#flox-rules = {path = "../flox-rules"}
+#flox-bamboo = {path = "../flox-bamboo"}
 
 [tool.poetry.dev-dependencies]
 black = "^19.10b0"
