@@ -62,7 +62,7 @@ def build_new_settings(settings, name, new_values):
 
 def interactive_parameters(flox: Flox, name: str, plugin: Plugin, scope, profile):
     configuration = plugin.configuration()
-    settings = load_settings(flox.initiated, flox.working_dir, profile)
+    settings = load_settings(Flox.plugins, flox.initiated, flox.working_dir, profile)
 
     new_values = {}
     for param in with_settings(settings.get(name), configuration.parameters()):
