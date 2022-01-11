@@ -89,7 +89,7 @@ class FloxCommand(click.core.Command):
                     self.params,
                     click.core.Option(
                         (f"--with-{name}/--without-{name}",),
-                        default=False,
+                        default=True,
                         is_flag=True,
                         help=plugin.description,
                     )
