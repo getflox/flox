@@ -1,6 +1,6 @@
 import re
 from os import makedirs, getcwd
-from os.path import join
+from os.path import join, abspath
 
 import click
 from slugify import slugify
@@ -21,6 +21,11 @@ def initiate_project_structure(flox: Flox, name, description, tag, features):
     name = re.sub(r"\s+", " ", name)
     project_id = slugify(name)
     project_dir = join(getcwd(), project_id)
+
+    target = click.prompt("Target directory", default=project_dir)
+    if target != project_dir:
+        project_dir = abspath(target)
+
     makedirs(join(project_dir, ".flox"), exist_ok=True)
 
     new_project = Flox(project_dir)
@@ -36,13 +41,17 @@ def initiate_project_structure(flox: Flox, name, description, tag, features):
 @click.group(invoke_without_command=True, with_plugin_selector=True, params_from=["flox_project"])
 @click.option("--name", help="Project name")
 @click.option("--description", help="Longer project description")
-@click.option("--tag", "-t", help="Tag, only used by plugins which are able to use it.", multiple=True)
+@click.option("--tag", help="Tag, only used by plugins which are able to use it.", multiple=True)
 @click.pass_obj
 @click.pass_context
 def project(ctx, flox: Flox, name: str, description: str, tag: list, **kwargs):
     """Initialise new project with flox"""
     if ctx.invoked_subcommand:
         return
+
+    if flox.initiated and click.prompt("Trying to initialise already initialised project. Are you sure you would like to proceed?"):
+        raise click.Abort()
+
 
     features = [k.replace("with_", "") for k, v in kwargs.items() if k.startswith("with_") and v]
 
