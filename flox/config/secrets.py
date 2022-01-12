@@ -8,11 +8,15 @@ from floxcore.console import info
 from floxcore.context import Flox
 from floxcore.plugin import Plugin
 
+from loguru import logger
+
 
 def save_secrets(flox: Flox, scope: str, profile: str, settings: dict):
     for name, value in settings.items():
         if not value:
+            logger.debug(f"Ignore empty secret for {name}")
             continue
+        logger.debug(f"Storing secret `{name}` with value `{value}` in `{scope}` scope")
         flox.secrets.put(name, value, scope=scope, profile=profile)
 
     info(f"Updated {len(settings)} secrets")
