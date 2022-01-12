@@ -28,7 +28,7 @@ requests = "^2.23.0"
 terminaltables = "^3.1.0"
 anyconfig = "^0.10" # we need to lock on 0.10 version as never one have a bug related to multiple files
 slugify = "^0.0.1"
-flox-core = "^0.1"
+flox-core = ">=0.2,<1.0.0"
 
 [tool.poetry.dev-dependencies]
 black = "^21.12b0"

@@ -206,7 +206,7 @@ tests = ["check-manifest (>=0.42)", "mock (>=1.3.0)", "pytest-cov (>=2.10.1)", "
 
 [[package]]
 name = "flox-core"
-version = "0.1.2"
+version = "0.2.0"
 description = "Core library for flox"
 category = "main"
 optional = false
@@ -621,7 +621,7 @@ testing = ["pytest (>=4.6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytes
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.6.2"
-content-hash = "9464e8cd76adb3721ea25be73607b154643f9a41da36db3481a1f57fec1ff7de"
+content-hash = "9d0fdcaa7ad5026b68eb2d316113ff0399b72f9e87b33b8083bc63a6757ff665"
 
 [metadata.files]
 aiocontextvars = [
@@ -758,8 +758,8 @@ dictdiffer = [
     {file = "dictdiffer-0.9.0.tar.gz", hash = "sha256:17bacf5fbfe613ccf1b6d512bd766e6b21fb798822a133aa86098b8ac9997578"},
 ]
 flox-core = [
-    {file = "flox-core-0.1.2.tar.gz", hash = "sha256:35b7222270cb6636a7b5255f170fe97e39c0c4de8b47a06ba8c4e57c090d8675"},
-    {file = "flox_core-0.1.2-py3-none-any.whl", hash = "sha256:26a581d2e8b67d0f346b52c367a57134c547a6d45a2cb6830bf69b28e788a22a"},
+    {file = "flox-core-0.2.0.tar.gz", hash = "sha256:9ace61a804b41452b88997a5260f204f22b0ec7c26d3f3d11595b63f6f82cbae"},
+    {file = "flox_core-0.2.0-py3-none-any.whl", hash = "sha256:539aa710d3ba9050ce329333e629b9d580af6a7683bb6f5e87c1b896abe95a8e"},
 ]
 humanfriendly = [
     {file = "humanfriendly-10.0-py2.py3-none-any.whl", hash = "sha256:1697e1a8a8f550fd43c2865cd84542fc175a61dcb779b6fee18cf6b6ccba1477"},
