@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "flox"
-version = "0.2.0"
+version = "0.2.1"
 homepage = "https://github.com/getflox/flox"
 description = "Highly opinionated workflow and orchestration toolkit for modern microservice development"
 authors = ["Michal Przytulski <michal@przytulski.pl>", "Daniel Ancuta <whisller@gmail.com>"]
