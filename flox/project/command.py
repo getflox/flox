@@ -49,7 +49,7 @@ def project(ctx, flox: Flox, name: str, description: str, tag: list, **kwargs):
     if ctx.invoked_subcommand:
         return
 
-    if flox.initiated and click.prompt("Trying to initialise already initialised project. Are you sure you would like to proceed?"):
+    if flox.initiated and not click.confirm("Trying to initialise already initialised project. Are you sure you would like to proceed?"):
         raise click.Abort()
 
     features = [k.replace("with_", "") for k, v in kwargs.items() if k.startswith("with_") and v]
