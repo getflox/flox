@@ -35,6 +35,7 @@ flox-bootstrap = {path="../flox-bootstrap/", develop=true}
 flox-sentry = {path="../flox-sentry/", develop=true}
 flox-git = {path="../flox-git/", develop=true}
 flox-github = {path="../flox-github/", develop=true}
+bump2version = "^1.0.1"
 
 [tool.poetry.scripts]
 flox = 'flox.cli:cli'
