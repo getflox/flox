@@ -8,39 +8,33 @@ license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.6.2"
-click = "^7.1"
+click = "^7.1" # version 8+ have a breaking changes and custom click classes must be changed before upgrade
 click-plugins = "^1.1.1"
 click-shell = "^2.0"
-gitpython = "^3.1.0"
 pygments = "^2.5"
 humanfriendly = "^10.0"
 pyyaml = "^6.0"
 schema = "^0.7"
-deepmerge = "^0.3.0"
+deepmerge = "^1.0"
 colorama = "^0.4"
 dictdiffer = "^0.9"
-keyring = "^23.4"
+keyring = "^21" # versions newer that 21 are buggy and they can't support custom keyring
 plumbum = "^1.6"
 requests = "^2.23.0"
 terminaltables = "^3.1.0"
-anyconfig = "^0.10"
-flox-core = { git = "ssh://git@github.com/getflox/flox-core" }
-#flox-core = {path = "../flox-core"}
-#flox-sentry = {path = "../flox-sentry"}
-#flox-aws = {path = "../flox-aws"}
-#flox-exec = {path = "../flox-exec"}
-#flox-git = {path = "../flox-git"}
-#flox-github = {path = "../flox-github"}
-#flox-workflow = {path = "../flox-workflow"}
-#flox-docker = {path = "../flox-docker"}
-#flox-jira = {path = "../flox-jira"}
-#flox-rules = {path = "../flox-rules"}
-#flox-bamboo = {path = "../flox-bamboo"}
-
+anyconfig = "^0.10" # we need to lock on 0.10 version as never one have a bug related to multiple files
 slugify = "^0.0.1"
+flox-core = "^0.1"
+
 [tool.poetry.dev-dependencies]
 black = "^21.12b0"
 isort = "^5.10"
+flox-core = {path="../flox-core/", develop=true}
+flox-aws = {path="../flox-aws/", develop=true}
+flox-bootstrap = {path="../flox-bootstrap/", develop=true}
+flox-sentry = {path="../flox-sentry/", develop=true}
+flox-git = {path="../flox-git/", develop=true}
+flox-github = {path="../flox-github/", develop=true}
 
 [tool.poetry.scripts]
 flox = 'flox.cli:cli'
