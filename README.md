@@ -2,6 +2,10 @@
 
 Flox is an opinionated orchestration and automation tool for microservice development using modern stack.
 
+> Flox is under active development by amazing developers working at @epsyhealth where we're on a mission to give the world a better way to live with epilepsy.
+> If you would like to join us to work on even more exciting projects, visit our website: https://www.epsyhealth.com/careers
+
+
 With flox we aim to automate the boring parts of project creation letting you focus on your business logic.
 
 Flox has a modular architecture, allowing you to extend its functionality with plugins.
@@ -18,7 +22,6 @@ Soon to see:
 - AWS integration
 - Terraform support
 - Serverless support
-
 
 ## Key features
 
