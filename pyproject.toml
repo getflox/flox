@@ -5,6 +5,7 @@ homepage = "https://github.com/getflox/flox"
 description = "Highly opinionated workflow and orchestration toolkit for modern microservice development"
 authors = ["Michal Przytulski <michal@przytulski.pl>", "Daniel Ancuta <whisller@gmail.com>"]
 license = "MIT"
+readme = "README.md"
 
 packages = [
     { include = "flox" }

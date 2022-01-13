@@ -253,7 +253,7 @@ wasabi = ">=0.9,<0.10"
 
 [[package]]
 name = "flox-git"
-version = "0.2.0"
+version = "0.2.1"
 description = "Bootstrap git repository for your project managed by flox."
 category = "main"
 optional = true
@@ -265,7 +265,7 @@ GitPython = ">=3.1.0,<4.0.0"
 
 [[package]]
 name = "flox-github"
-version = "0.1.2"
+version = "0.1.3"
 description = "Create and enforce standard rules on GitHub repositories managed by flox."
 category = "main"
 optional = true
@@ -278,7 +278,7 @@ pygithub = ">=1.46,<2.0"
 
 [[package]]
 name = "flox-sentry"
-version = "0.1.2"
+version = "0.1.3"
 description = "Automatically create projects and teams for flox managed projects"
 category = "main"
 optional = true
@@ -990,16 +990,16 @@ flox-core = [
     {file = "flox_core-0.2.0-py3-none-any.whl", hash = "sha256:539aa710d3ba9050ce329333e629b9d580af6a7683bb6f5e87c1b896abe95a8e"},
 ]
 flox-git = [
-    {file = "flox-git-0.2.0.tar.gz", hash = "sha256:12240b512f73d15f15c762c9e6cc1bf2f02a6b0de33720e219476b7d3fd6833c"},
-    {file = "flox_git-0.2.0-py3-none-any.whl", hash = "sha256:31646d070418be6911ea544b246a1f2f0fe51b6814daec381ee845dce8e83f09"},
+    {file = "flox-git-0.2.1.tar.gz", hash = "sha256:38a3042521e761f73cb862e4f87d3f5b4b27f8c8cbf74b66740280fe30d15fe9"},
+    {file = "flox_git-0.2.1-py3-none-any.whl", hash = "sha256:944f0eb1a7f2933d26d6a15226bd4dd401b230ba490ca3ed2705d71240e405a2"},
 ]
 flox-github = [
-    {file = "flox-github-0.1.2.tar.gz", hash = "sha256:db3f9604f9b1307b78508fa2137deec0bf638c3f85ca589150fd34c202a64928"},
-    {file = "flox_github-0.1.2-py3-none-any.whl", hash = "sha256:8617da8891a71274104f7e6d823ca6cc8d826514f557712cf7691088de784794"},
+    {file = "flox-github-0.1.3.tar.gz", hash = "sha256:792f08903c2393dd701d9212e3d63a3e72b9360eed8db31359c1c5c9b0c40bfe"},
+    {file = "flox_github-0.1.3-py3-none-any.whl", hash = "sha256:a45cc600f864d9ac38f0eb50d667be8dfe82c725a4454691f64f0b4b8f3af021"},
 ]
 flox-sentry = [
-    {file = "flox-sentry-0.1.2.tar.gz", hash = "sha256:e0f83113e496c7001e4d102be4462365d602a6f02f76d716950c959d6b9fa3d2"},
-    {file = "flox_sentry-0.1.2-py3-none-any.whl", hash = "sha256:953e9b842e2ca10ad13e53ab1faf97973e53a8c7b8f891850937da7fb4633032"},
+    {file = "flox-sentry-0.1.3.tar.gz", hash = "sha256:29cbf31155a05a7ea445633f3f016cc6d279fcd9ffe6ff5f36981a4ad7c3e03c"},
+    {file = "flox_sentry-0.1.3-py3-none-any.whl", hash = "sha256:5362619ee6b8b5053f1aa56604b15a243ffadd3505c8cebe03d8c3eeca657fa5"},
 ]
 gitdb = [
     {file = "gitdb-4.0.9-py3-none-any.whl", hash = "sha256:8033ad4e853066ba6ca92050b9df2f89301b8fc8bf7e9324d412a63f8bf1a8fd"},
