@@ -40,15 +40,9 @@ flox-sentry = { version = ">=0.1,<1.0.0", optional = true }
 black = "^21.12b0"
 isort = "^5.10"
 bump2version = "^1.0.1"
-#flox-core = {path="../flox-core/", develop=true}
-#flox-aws = {path="../flox-aws/", develop=true}
-#flox-bootstrap = {path="../flox-bootstrap/", develop=true}
-#flox-sentry = {path="../flox-sentry/", develop=true}
-#flox-git = {path="../flox-git/", develop=true}
-#flox-github = {path="../flox-github/", develop=true}
 
 [tool.poetry.extras]
-#aws = ["flox-aws"]
+aws = ["flox-aws"]
 bootstrap = ["flox-bootstrap"]
 git = ["flox-git"]
 github = ["flox-github"]
