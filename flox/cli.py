@@ -1,42 +1,32 @@
-from os import getcwd
+import os
 
 import click
 from click_plugins import with_plugins
-from click_shell import shell
+from floxcore import FloxContext
 from pkg_resources import iter_entry_points
 
-from flox.config.command import config
-from flox.info.command import flox_info
-from flox.plugins.command import plugin
-from flox.profile.command import profile
-from flox.project.command import project
-from floxcore.context import Flox, locate_project_root
-from floxcore.exceptions import FloxException
+from .project.click import apply, create
+from .profile.click import profiles
 
-instance = Flox()
-
-CONTEXT_SETTINGS = dict(auto_envvar_prefix="FLOX", obj=instance)
+context = FloxContext(plugins=iter_entry_points("flox.plugin"))
 
 
-@with_plugins(iter_entry_points("flox.plugin.command"))
-@shell(prompt=instance.prompt, context_settings=CONTEXT_SETTINGS)
+@with_plugins(context.plugins)
+@click.group()
 @click.pass_context
-def cli(ctx):
+@click.option("--work-dir", default=os.getcwd(), type=click.Path())
+def cli(ctx, work_dir):
     """
     Consistent project management and automation with flox
     """
-    if not instance.initiated and not ctx.invoked_subcommand:
-        raise FloxException("Unable to load interactive shell for uninitialised project.")
+    ctx.obj = context
+    ctx.obj.work_dir = work_dir
+    ctx.obj.load()
 
 
-cli.add_command(config)
-cli.add_command(plugin)
-cli.add_command(project)
-if locate_project_root(getcwd()):
-    cli.add_command(flox_info)
-    cli.add_command(profile)
-
-Flox.plugins.add_commands(cli)
+cli.add_command(apply)
+cli.add_command(create)
+cli.add_command(profiles)
 
 if __name__ == "__main__":
     cli()

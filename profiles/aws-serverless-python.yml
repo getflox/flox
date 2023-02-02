@@ -1,0 +1,54 @@
+meta:
+  description: Serverless project with python configuration for AWS Lambda runtime
+
+git:
+  default_branch: main
+  branches:
+    - main
+    - develop
+
+github:
+  repository:
+    has_wiki: false
+    has_projects: false
+    has_issues: false
+    visibility: private
+    merge_commit_title: PR_TITLE
+    merge_commit_message: PR_BODY
+    squash_merge_commit_title: PR_TITLE
+    squash_merge_commit_message: PR_BODY
+    delete_branch_on_merge: true
+    allow_rebase_merge: false
+    allow_squash_merge: true
+
+
+    security_and_analysis:
+      advanced_security:
+        status: enabled
+      secret_scanning:
+        status: enabled
+      secret_scanning_push_protection:
+        status: enabled
+
+
+  security:
+    vulnerability_alert: true
+    automated_security_fixes: true
+    collaborators:
+      admin: ""
+
+  workflow:
+    protection:
+      main:
+        required_status_checks: true
+        required_pull_request_reviews:
+          require_code_owner_reviews: true
+          required_approving_review_count: 2
+          require_last_push_approval: true
+
+      dev:
+        required_status_checks: true
+        required_pull_request_reviews:
+          require_code_owner_reviews: true
+          required_approving_review_count: 1
+          require_last_push_approval: true

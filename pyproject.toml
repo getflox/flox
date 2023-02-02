@@ -12,34 +12,17 @@ packages = [
 ]
 
 [tool.poetry.dependencies]
-python = "^3.6.2"
-click = "^7.1" # version 8+ have a breaking changes and custom click classes must be changed before upgrade
+python = "^3.8"
+click = "^8.1"
 click-plugins = "^1.1.1"
-click-shell = "^2.0"
-pygments = "^2.5"
-humanfriendly = "^10.0"
-pyyaml = "^6.0"
-schema = "^0.7"
-deepmerge = "^1.0"
-colorama = "^0.4"
-dictdiffer = "^0.9"
-keyring = "^21" # versions newer that 21 are buggy and they can't support custom keyring
-plumbum = "^1.6"
-requests = "^2.23.0"
-terminaltables = "^3.1.0"
-anyconfig = "^0.10" # we need to lock on 0.10 version as never one have a bug related to multiple files
-slugify = "^0.0.1"
-flox-core = ">=0.2,<1.0.0"
-#flox-aws = { version = ">=0.1,<1.0.0", optional = true }
-flox-bootstrap = { version = ">=0.1,<1.0.0", optional = true }
-flox-git = { version = ">=0.1,<1.0.0", optional = true }
-flox-github = { version = ">=0.1,<1.0.0", optional = true }
-flox-sentry = { version = ">=0.1,<1.0.0", optional = true }
+flox-github = {path = "../flox-github"}
+flox-core = {path = "../flox-core", develop = true}
+flox-git = {path = "../flox-git"}
+
 
 [tool.poetry.dev-dependencies]
-black = "^21.12b0"
-isort = "^5.10"
-bump2version = "^1.0.1"
+black = "^23.0"
+isort = "^5.12.0"
 
 [tool.poetry.extras]
 aws = ["flox-aws"]
@@ -51,9 +34,6 @@ sentry = ["flox-sentry"]
 
 [tool.poetry.scripts]
 flox = 'flox.cli:cli'
-
-[tool.poetry.plugins."flox.plugin"]
-global = "flox:plugin"
 
 [tool.black]
 line-length = 120
