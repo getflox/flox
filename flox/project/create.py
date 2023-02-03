@@ -1,13 +1,22 @@
 from os import getcwd, mkdir
 from os.path import join, isdir, isfile
 
-import click
 import humps
 import yaml
 from floxcore import FloxContext
-from floxcore.exceptions import PluginException
-from floxcore.ui import tqdm
-from loguru import logger
+from floxcore.plugin import Stage
+from floxcore.ui import Output
+
+from flox.plugin import core
+from flox.project.workflow import apply_stages
+
+
+def update_flox_config(flox: FloxContext, output: Output, **kwargs):
+    """Update local profile config"""
+    with open(flox.profile_file, "w+") as f:
+        yaml.dump({**{"project": flox.project.as_dict()}, **flox.profile.to_dict()}, f)
+
+    output.success(f"Saved project settings: {flox.profile_file}")
 
 
 def create_project(flox: FloxContext, name, description, profile):
@@ -32,16 +41,5 @@ def create_project(flox: FloxContext, name, description, profile):
     flox.load()
 
     stages = flox.project.stages
-    stream = click.get_text_stream("stdout")
-    outputs = {}
-    with tqdm(total=len(stages), file=stream) as t:
-        for stage in stages:
-            t.set_description(str(stage))
-            try:
-                outputs.update(stage(flox=flox, output=t, **outputs, **flox.profile.get(stage.plugin.name)) or {})
-            except PluginException as e:
-                t.error(str(stage) + f": {str(e).strip()}")
-            except Exception as e:
-                t.error(str(stage) + f": {str(e).strip()}")
-                logger.exception(e)
-            t.update(1)
+    stages.append(Stage(callback=update_flox_config, priority=99999, plugin=core))
+    apply_stages(flox, stages)
