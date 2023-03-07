@@ -15,9 +15,9 @@ packages = [
 python = "^3.8"
 click = "^8.1"
 click-plugins = "^1.1.1"
-flox-github = {path = "../flox-github"}
+flox-github = {path = "../flox-github", develop = true}
 flox-core = {path = "../flox-core", develop = true}
-flox-git = {path = "../flox-git"}
+flox-sentry = {path = "../flox-sentry", develop = true}
 
 
 [tool.poetry.dev-dependencies]

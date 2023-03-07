@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 from os import listdir
 from os.path import join, dirname, realpath, isfile
+from pathlib import Path
 from typing import List
 
 
@@ -27,9 +28,16 @@ class LocalRepository(Repository):
                         isfile(join(self.location, profile)) and profile.endswith(".yml")]:
             yield Profile(name=profile.replace(".yml", ""), source=join(self.location, profile), description="-")
 
+
+class FloxRepository(LocalRepository):
     def __init__(self):
         super().__init__(location=realpath(join(dirname(__file__), "..", "..", "profiles")))
 
 
+class UserCacheRepository(LocalRepository):
+    def __init__(self):
+        super().__init__(location=str(Path.joinpath(Path.home(), ".flox", "cache", "profiles")))
+
+
 def get_sources() -> List[Repository]:
-    return [LocalRepository()]
+    return [UserCacheRepository(), FloxRepository()]
